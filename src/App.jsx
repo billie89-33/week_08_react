@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Layer from './components/Layer';
+import SecretRoom from './components/SecretRoom';
 
 export default function App() {
   const [message, setMessage] = useState("");
+  const [Answer,setAnswer] = useState("")
 
   return (
-    <div className="min-h-screen bg-white-500 p-8 text-center">
+    <div className="w-full flex-1 flex flex-col h-full bg-white-500  text-center">
       message for JSD12
 
       
@@ -17,27 +19,34 @@ export default function App() {
           onChange={(e) => setMessage(e.target.value)}
         />
         <p className='text-black'>Reply from secret Room</p>
+        <p className="text-green-300">Reply to the <span className=" text-yellow-200 ml-2 font-bold">
+    {Answer ? Answer : "Waiting for a reply"}
+  </span></p>
       </div>
       
 
       {/* เริ่มสร้างกำแพงชั้นต่างๆ */}
-      <div className="max-w-xl mx-auto ">
+      <div className="w-screen h-full ">
         <Layer name="Castle" color="bg-red-500">
 
           <Layer name="Tower" color="bg-orange-500" >
 
-            <Layer name="Chamber" color="bg-amber-400" >
+            <Layer name="Chamber" color="bg-amber-400 " message={message ? message : "รออยู่นะ"} >
 
               <Layer name="Room" color="bg-emerald-500" >
 
                 <Layer name="Hall" color="bg-cyan-500" >
 
                   <Layer name="Corridor" color="bg-blue-600" >
+                    <Layer name="Nook" color="bg-blue-300" >
 
-                     <div className="bg-amber-50">
-                    <Layer message={message} color="bg"/>
-                     </div>
- 
+
+                     
+                    <SecretRoom  message={message} setAnswer={setAnswer}/>
+                     
+                     
+
+                    </Layer>
                   </Layer>
 
                 </Layer>
