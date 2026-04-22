@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Layer from './components/Layer';
 import SecretRoom from './components/SecretRoom';
+import PokemonDitto from './components/PokemonCardDitto';
+import PokemonBulbasaur from './components/PokemonCardBulbasaur';
 
 export default function App() {
   const [message, setMessage] = useState("");
@@ -61,7 +63,18 @@ export default function App() {
 
       </div>
 
+<div className="flex flex-row w-screen gap-1">
+  <PokemonDitto />
+  <PokemonBulbasaur/>
+
+  
+  
+</div>
 
     </div>
+   
+   
+   
+    
   );
 }

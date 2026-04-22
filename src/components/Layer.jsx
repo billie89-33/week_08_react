@@ -9,7 +9,7 @@ const Layer = ({ name, color, message, children }) => {
       </div>
       
         <span className="text-xs font-normal ">
-          message={message}
+          {message}
         </span>
        
         
