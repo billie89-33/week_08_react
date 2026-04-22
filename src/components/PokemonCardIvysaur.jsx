@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-function PokemonDitto (){
+function PokemonIvysaur (){
   const [finalData, setfinalData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -10,7 +10,7 @@ function PokemonDitto (){
       try {
         setLoading(true);
 
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/Ivysaur");
         const data = await response.json();
 
         const detailedAbilities = await Promise.all(
@@ -35,7 +35,7 @@ function PokemonDitto (){
 
         //  ดึงข้อมูลสถานที่เจอ (Encounters)  //location-------------------------
         const resEncounter = await fetch(
-          "https://pokeapi.co/api/v2/pokemon/132/encounters",
+          "https://pokeapi.co/api/v2/pokemon/2/encounters",
         );
         const encounterData = await resEncounter.json();
 
@@ -121,4 +121,4 @@ function PokemonDitto (){
   );
 }
 
-export default PokemonDitto;
+export default PokemonIvysaur;
