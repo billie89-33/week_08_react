@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, } from 'react';
 import Layer from './components/Layer';
 import SecretRoom from './components/SecretRoom';
 import PokemonDitto from './components/PokemonCardDitto';
 import PokemonBulbasaur from './components/PokemonCardBulbasaur';
 import PokemonIvysaur from './components/PokemonCardIvysaur';
 import PokemonKakuna from './components/PokemonCardkakuna';
+import MessageContext from './messageContext.jsx/MessageContext';
+import NavBar from './components/Navbar';
 
 export default function App() {
-  const [message, setMessage] = useState("");
-  const [Answer,setAnswer] = useState("")
+  
+  const { message, setMessage, Answer, setAnswer } = useContext(MessageContext);
 
   return (
     <div className="w-full flex-1 flex flex-col h-full bg-white-500  text-center">
+    <NavBar />
+     
       message for JSD12
 
       
@@ -23,16 +27,14 @@ export default function App() {
           onChange={(e) => setMessage(e.target.value)}
         />
         <p className='text-black'>Reply from secret Room</p>
-        <p className="text-green-300">Reply to the <span className=" text-yellow-200 ml-2 font-bold">
-    {Answer ? Answer : "Waiting for a reply"}
-  </span></p>
+        <p className="text-green-300">Reply to the <span className=" text-yellow-200 ml-2 font-bold"> {Answer ? Answer : "Waiting for a reply"}</span></p>
       </div>
       
 
       {/* เริ่มสร้างกำแพงชั้นต่างๆ */}
       <div className="w-screen h-full ">
         <Layer name="Castle" color="bg-red-500">
-
+           
           <Layer name="Tower" color="bg-orange-500" >
 
             <Layer name="Chamber" color="bg-amber-400 " message={message ? message : "รออยู่นะ"} >
